@@ -1,0 +1,211 @@
+{% extends "base.html" %} {% block title %}GUI Page{% endblock %} {% block
+content %}
+
+<div class="container">
+  <div class="row mb-4">
+    <div class="col-md-6 mb-4 mb-md-0">
+      <div class="card card-modern bg-primary text-white">
+        <div class="card-body">
+          <h1 class="card-title">Top Keywords</h1>
+          <div id="top-keywords" class="charts-section"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card card-modern bg-secondary text-dark">
+        <div class="card-body">
+          <h1 class="card-title">Top 20 Authors</h1>
+          <div id="top_authors" class="charts-section"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-4">
+    <div class="col-md-6 mb-4 mb-md-0">
+      <div class="card card-modern bg-success text-white">
+        <div class="card-body">
+          <h1 class="card-title">Articles by Date</h1>
+          <div id="articles_by_date" class="charts-section"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card card-modern bg-danger text-white">
+        <div class="card-body">
+          <h1 class="card-title">Articles by Word Count</h1>
+          <div id="articles_by_word_count" class="charts-section"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-4">
+    <div class="col-md-12 mb-4 mb-md-0">
+      <div class="card card-modern bg-light text-dark">
+        <div class="card-body">
+          <h1 class="card-title">Recent Articles</h1>
+          <div id="recent_articles" class="charts-section"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-4">
+    <div class="col-md-6 mb-4 mb-md-0">
+      <div class="card card-modern bg-primary text-white">
+        <div class="card-body">
+          <div class="header-container d-flex align-items-center">
+            <h1 class="card-title">Articles By Authors</h1>
+            <div class="select-container move-up-10">
+              <label for="authorSelector" class="form-label"></label>
+              <select
+                class="form-select modern-select btn btn-light"
+                id="authorSelector"
+              >
+                <option value="" disabled selected>Select an author</option>
+              </select>
+            </div>
+          </div>
+          <div id="all_authors" class="charts-section"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card card-modern bg-dark text-white">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <h1 class="card-title">Articles by Keyword</h1>
+            </div>
+            <div class="col-md-6">
+              <div class="d-flex move-up-10" method="POST" action="/search">
+                <input
+                  type="text"
+                  class="form-control me-2"
+                  id="keyword"
+                  name="keyword"
+                  placeholder="Keyword..."
+                  style="width: 100%"
+                  required
+                />
+                <a id="search-btn" class="btn btn-light mx-2"
+                  ><i class="fa-solid fa-magnifying-glass"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div id="articles_by_keyword" class="charts-section"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <div class="card card-modern bg-secondary text-dark">
+        <div class="card-body">
+          <div class="header-container d-flex align-items-center">
+            <h1 class="card-title">Top Classes</h1>
+            <div class="select-container move-up-10">
+              <label for="itemSelector" class="form-label"></label>
+              <select
+                class="form-select modern-select btn btn-secondary"
+                id="itemSelector"
+              >
+                <option value="5">Top 5</option>
+                <option value="10">Top 10</option>
+                <option value="20">Top 20</option>
+                <option value="all" selected>All</option>
+              </select>
+            </div>
+          </div>
+          <div id="top_classes" class="charts-section"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-4">
+    <div class="col-md-6 mb-4 mb-md-0">
+      <div class="card card-modern bg-danger text-white">
+        <div class="card-body">
+          <h1 class="card-title">Articles by Language on WEB</h1>
+          <div id="articles_by_language_on_web" class="charts-section"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card card-modern bg-danger text-white">
+        <div class="card-body">
+          <h1 class="card-title">Articles by Language</h1>
+          <div id="articles_by_language" class="charts-section"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4">
+    <div class="col-md-12 mb-4 mb-md-0">
+      <div class="card card-modern bg-secondary text-dark">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <h1 class="card-title">Articles by word count range</h1>
+            </div>
+            <div class="col-md-6">
+              <div class="d-flex move-up-10" method="POST" action="/search">
+                <input
+                  type="number"
+                  class="form-control mx-2"
+                  id="min"
+                  name="min"
+                  placeholder="Min..."
+                  required
+                  min="0"
+                  max=null
+                />
+                <input
+                  type="number"
+                  class="form-control me-2"
+                  id="max"
+                  name="max"
+                  placeholder="Max..."
+                  required
+                  min="0"
+                  max=null
+                />
+                <a
+                  id="search-min-max"
+                  class="btn btn-light mx-2"
+                >
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+              </div>
+              <h6 id="total-articles" ></h6>
+            </div>
+          </div>
+          <div id="articles_by_word_count_range" class="charts-section"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4">
+    <div class="col-md-12 mb-4 mb-md-0">
+      <div class="card card-modern bg-light text-dark">
+        <div class="card-body">
+          <h1 class="card-title">Top 50 Shortest Articles</h1>
+          <div id="shortest_articles" class="charts-section"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-4">
+    <div class="col-md-12 mb-4 mb-md-0">
+      <div class="card card-modern bg-light text-dark">
+        <div class="card-body">
+          <h1 class="card-title">Top 50 Longest Articles</h1>
+          <div id="longest_articles" class="charts-section"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+{% endblock %}
