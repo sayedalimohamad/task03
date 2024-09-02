@@ -1,9 +1,9 @@
 {% extends "base.html" %} {% block title %}GUI Page{% endblock %} {% block
 content %}
-
 <div class="container">
   <div class="row mb-4">
-    <div class="col-md-6 mb-4 mb-md-0">
+    <!-- Top Keywords -->
+    <div class="col-lg-6 col-md-12 col-sm-12 mb-4">
       <div class="card card-modern bg-primary text-white">
         <div class="card-body">
           <h1 class="card-title">Top Keywords</h1>
@@ -11,7 +11,8 @@ content %}
         </div>
       </div>
     </div>
-    <div class="col-md-6">
+    <!-- Top 20 Authors -->
+    <div class="col-lg-6 col-md-12 col-sm-12">
       <div class="card card-modern bg-secondary text-dark">
         <div class="card-body">
           <h1 class="card-title">Top 20 Authors</h1>
@@ -20,8 +21,10 @@ content %}
       </div>
     </div>
   </div>
+
   <div class="row mb-4">
-    <div class="col-md-6 mb-4 mb-md-0">
+    <!-- Articles by Date -->
+    <div class="col-lg-6 col-md-12 col-sm-12 mb-4">
       <div class="card card-modern bg-success text-white">
         <div class="card-body">
           <h1 class="card-title">Articles by Date</h1>
@@ -29,7 +32,8 @@ content %}
         </div>
       </div>
     </div>
-    <div class="col-md-6">
+    <!-- Articles by Word Count -->
+    <div class="col-lg-6 col-md-12 col-sm-12">
       <div class="card card-modern bg-danger text-white">
         <div class="card-body">
           <h1 class="card-title">Articles by Word Count</h1>
@@ -38,8 +42,10 @@ content %}
       </div>
     </div>
   </div>
+
   <div class="row mb-4">
-    <div class="col-md-12 mb-4 mb-md-0">
+    <!-- Recent Articles -->
+    <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
       <div class="card card-modern bg-light text-dark">
         <div class="card-body">
           <h1 class="card-title">Recent Articles</h1>
@@ -48,16 +54,18 @@ content %}
       </div>
     </div>
   </div>
+
   <div class="row mb-4">
-    <div class="col-md-6 mb-4 mb-md-0">
+    <!-- Articles By Authors -->
+    <div class="col-lg-6 col-md-12 col-sm-12">
       <div class="card card-modern bg-primary text-white">
         <div class="card-body">
           <div class="header-container d-flex align-items-center">
             <h1 class="card-title">Articles By Authors</h1>
-            <div class="select-container move-up-10">
+            <div class="move-up-10">
               <label for="authorSelector" class="form-label"></label>
               <select
-                class="form-select modern-select btn btn-light"
+                class="form-select modern-select btn btn-light "
                 id="authorSelector"
               >
                 <option value="" disabled selected>Select an author</option>
@@ -68,14 +76,15 @@ content %}
         </div>
       </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-lg-6 col-md-12 col-sm-12">
       <div class="card card-modern bg-dark text-white">
         <div class="card-body">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-lg-6 col-md-12 col-sm-12">
+              <!-- Articles by Keyword -->
               <h1 class="card-title">Articles by Keyword</h1>
             </div>
-            <div class="col-md-6">
+            <div class="col-lg-6 col-md-12 col-sm-12">
               <div class="d-flex move-up-10" method="POST" action="/search">
                 <input
                   type="text"
@@ -97,8 +106,10 @@ content %}
       </div>
     </div>
   </div>
+
   <div class="row mb-4">
-    <div class="col-md-12">
+    <!-- Top Classes -->
+    <div class="col-lg-12 col-md-12 col-sm-12">
       <div class="card card-modern bg-secondary text-dark">
         <div class="card-body">
           <div class="header-container d-flex align-items-center">
@@ -121,8 +132,10 @@ content %}
       </div>
     </div>
   </div>
+
   <div class="row mb-4">
-    <div class="col-md-6 mb-4 mb-md-0">
+    <!-- Articles by Language on WEB -->
+    <div class="col-lg-6 col-md-12 col-sm-12 mb-4">
       <div class="card card-modern bg-danger text-white">
         <div class="card-body">
           <h1 class="card-title">Articles by Language on WEB</h1>
@@ -130,7 +143,7 @@ content %}
         </div>
       </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-lg-6 col-md-12 col-sm-12">
       <div class="card card-modern bg-danger text-white">
         <div class="card-body">
           <h1 class="card-title">Articles by Language</h1>
@@ -141,15 +154,20 @@ content %}
   </div>
 
   <div class="row mb-4">
-    <div class="col-md-12 mb-4 mb-md-0">
+    <!-- Articles by word count range -->
+    <div class="col-lg-12 col-md-12 col-sm-12">
       <div class="card card-modern bg-secondary text-dark">
         <div class="card-body">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-lg-6 col-md-6 col-sm-12">
               <h1 class="card-title">Articles by word count range</h1>
             </div>
-            <div class="col-md-6">
-              <div class="d-flex move-up-10" method="POST" action="/search">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <div
+                class="d-flex move-up-10 col-lg-12"
+                method="POST"
+                action="/search"
+              >
                 <input
                   type="number"
                   class="form-control mx-2"
@@ -158,7 +176,7 @@ content %}
                   placeholder="Min..."
                   required
                   min="0"
-                  max=null
+                  max="null"
                 />
                 <input
                   type="number"
@@ -168,16 +186,13 @@ content %}
                   placeholder="Max..."
                   required
                   min="0"
-                  max=null
+                  max="null"
                 />
-                <a
-                  id="search-min-max"
-                  class="btn btn-light mx-2"
-                >
+                <a id="search-min-max" class="btn btn-light mx-2">
                   <i class="fa-solid fa-magnifying-glass"></i>
                 </a>
               </div>
-              <h6 id="total-articles" ></h6>
+              <h6 id="total-articles"></h6>
             </div>
           </div>
           <div id="articles_by_word_count_range" class="charts-section"></div>
@@ -186,19 +201,19 @@ content %}
     </div>
   </div>
 
-  <div class="row mb-4">
-    <div class="col-md-12 mb-4 mb-md-0">
-      <div class="card card-modern bg-light text-dark">
+  <div class="row mb-4 card card-modern">
+    <!-- Top 50 Shortest Articles -->
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <div class="">
         <div class="card-body">
           <h1 class="card-title">Top 50 Shortest Articles</h1>
           <div id="shortest_articles" class="charts-section"></div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="row mb-4">
-    <div class="col-md-12 mb-4 mb-md-0">
-      <div class="card card-modern bg-light text-dark">
+    <!-- Top 50 Longest Articles -->
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <div class="">
         <div class="card-body">
           <h1 class="card-title">Top 50 Longest Articles</h1>
           <div id="longest_articles" class="charts-section"></div>
@@ -206,6 +221,5 @@ content %}
       </div>
     </div>
   </div>
-  
 </div>
 {% endblock %}

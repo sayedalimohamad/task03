@@ -45,7 +45,7 @@ fetch("/top_keywords")
         paddingLeft: 5,
         paddingRight: 5,
         fontFamily: "Courier New",
-        fill: am5.color(0xc3e6cb),
+        fill: am5.color(0xffffff),
       });
     });
   })
