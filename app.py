@@ -123,7 +123,7 @@ def articles_by_classes():
 @app.route("/recent_articles", methods=["GET"])
 def recent_articles():
     pipeline = [
-        {"$project": {"_id": 0, "title": 1, "last_updated": 1}},
+        {"$project": {"_id": 0, "title": 1, "last_updated": 1, "url": 1,"description": 1,"thumbnail": 1, "author": 1}},
         {"$sort": {"last_updated": -1}},
         {"$limit": 20},
     ]
