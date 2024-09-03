@@ -6,7 +6,7 @@ import sys
 def remove_error_data():
     try:
         # Read the JSON data from the file
-        with open("data/articles.json", "r", encoding="utf-8") as file:
+        with open("articles.json", "r", encoding="utf-8") as file:
             data = json.load(file)
 
         # Find the indices of the errors
@@ -20,16 +20,16 @@ def remove_error_data():
 
         # Write the updated data back to a new JSON file if errors were found
         if error_indices:
-            new_file_path = f"data/articles_{len(data)}.json"
+            new_file_path = f"articles_{len(data)}.json"
             with open(new_file_path, "w", encoding="utf-8") as file:
                 json.dump(data, file, ensure_ascii=False, indent=4)
             return len(data), new_file_path
 
         # Return the original data length and file path if no errors were found
-        return len(data), "data/articles.json"
+        return len(data), "articles.json"
 
     except FileNotFoundError:
-        print("The file data/articles.json does not exist.")
+        print("The file articles.json does not exist.")
         return 0, None
     except json.JSONDecodeError:
         print("Error decoding JSON from the file.")

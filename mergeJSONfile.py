@@ -1,7 +1,7 @@
 import os
 import json
 
-folder_path = "dbJSON"
+folder_path = "data"
 merged_data = []
 total_elements = 0
 for filename in os.listdir(folder_path):
