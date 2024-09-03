@@ -295,6 +295,7 @@ thead {
 }
 
 td {
+  background-color: rgba(0, 123, 255, 0.8);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -308,4 +309,17 @@ td {
 
 .table a {
   text-decoration: none;
+  color: #f8f9fa;
+}
+
+.table td,
+.table th {
+  padding: 0.75rem;
+  vertical-align: bottom;
+  border-bottom: 1px solid #f8f9fa;
+  border-top: none;
+}
+.table tr:last-child td,
+.table tr:last-child th {
+  border-bottom: none;
 }
