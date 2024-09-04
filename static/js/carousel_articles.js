@@ -12,16 +12,17 @@ document.addEventListener("DOMContentLoaded", function () {
       carouselIndicators.innerHTML = "";
       dataTop = data.slice(0, 20);
       dataTop.forEach((article, index) => {
+        let updatedThumbnailUrl = article.thumbnail.replace(
+          /https:\/\/alpha-ar-media\.almayadeen\.net\//g,
+          "https://media-ar.mangopulse.net/"
+        );
         const carouselItem = document.createElement("div");
         carouselItem.classList.add("carousel-item");
         if (index === 0) {
           carouselItem.classList.add("active");
         }
-        imgFile = article.thumbnail.split("/").pop().split("?")[0];
-        // article.thumbnail is not shown in the carousel because of the CORS policy
-        // so we need to extract the image file name from the URL and save it in imgFile until we find a permission to show the image from al mayadeen server website
         carouselItem.innerHTML = `
-                        <img src="/static/img/${imgFile}" class="d-block w-100" alt="${
+                        <img src="${updatedThumbnailUrl}" class="d-block w-100" alt="${
           article.title
         }">
                         <div class="carousel-caption d-none d-md-block">
