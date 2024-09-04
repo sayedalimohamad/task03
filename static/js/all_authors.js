@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   <a href="${item.url}" target="_blank">${item.title}</a>
                 </td>
                 <td class="right-align" title="Published: ${item.published_time}\nLast Updated: ${item.last_updated}">
-                  <a href="${item.url}" target="_blank">${startIndex + index + 1}</a>
+                  <a href="${item.url}" target="_blank" style="color: #000000;">${startIndex + index + 1}</a>
                 </td>
               `;
               tbody.appendChild(row);

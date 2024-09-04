@@ -241,13 +241,14 @@ thead {
   background-color: #fff;
 }
 td {
-  background-color: rgba(0, 123, 255, 0.8);
+  
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 400px;
   direction: rtl;
   unicode-bidi: plaintext;
+  background-color: #007bff;
 }
 .card-body h1 {
   font-size: x-large;
@@ -255,6 +256,7 @@ td {
 .table a {
   text-decoration: none;
   color: #f8f9fa;
+  
 }
 .table td,
 .table th {
@@ -262,6 +264,7 @@ td {
   vertical-align: bottom;
   border-bottom: 1px solid #f8f9fa;
   border-top: none;
+  background-color: #007bff;
 }
 .table tr:last-child td,
 .table tr:last-child th {
@@ -327,15 +330,11 @@ td {
   background-color: transparent;
   display: flex;
 }
-
-/* Ensure images are responsive and cover the container */
 .carousel-inner img {
   width: 100%;
-  height: 500px; /* You can adjust this height as needed */
-  object-fit: cover; /* This makes sure the image covers the container without stretching */
+  height: 500px;
+  object-fit: cover;
 }
-
-/* Optional: Add some styling to the carousel caption */
 .carousel-caption {
-  bottom: 20px; /* Adjust as needed */
+  bottom: 20px;
 }
