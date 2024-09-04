@@ -10,16 +10,20 @@ document.addEventListener("DOMContentLoaded", function () {
     .then((data) => {
       carouselInner.innerHTML = "";
       carouselIndicators.innerHTML = "";
-      dataTop = data.slice(0, 10);
+      dataTop = data.slice(0, 20);
       dataTop.forEach((article, index) => {
         const carouselItem = document.createElement("div");
         carouselItem.classList.add("carousel-item");
         if (index === 0) {
           carouselItem.classList.add("active");
         }
+        imgFile = article.thumbnail.split("/").pop().split("?")[0];
         // article.thumbnail is not shown in the carousel because of the CORS policy
+        // so we need to extract the image file name from the URL and save it in imgFile until we find a permission to show the image from al mayadeen server website
         carouselItem.innerHTML = `
-                        <img src="https://www.dream-box.tv/Assets/Images/WorksDetail/al-mayadeen/09.png" class="d-block w-100" alt="${article.title}">
+                        <img src="/static/img/${imgFile}" class="d-block w-100" alt="${
+          article.title
+        }">
                         <div class="carousel-caption d-none d-md-block">
                         <h5>${article.title}</h5>
                         <p>${article.description}</p>
@@ -58,9 +62,3 @@ function formatDate(dateString) {
   const day = String(date.getDate()).padStart(2, "0");
   return `${year}-${month}-${day}`;
 }
-
-fetch(`https://alpha-ar-media.almayadeen.net/media/image/2024/9/2/f06683c8-58c0-4460-bb3c-c9d20ac29e2c.jpg`)
-.then(response => {
-  console.log(response.headers.get('Access-Control-Allow-Origin'));
-})
-.catch(error => console.error('Error:', error));
